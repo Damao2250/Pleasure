@@ -18,3 +18,27 @@ function randomCode(n){
 // randomCode(2);
 // randomCode(6);
 ```
+
++ 任意范围内随机整数
+```js
+    /**
+ * 任意范围内的随机整数
+ * @param  {Number} min [最小值]
+ * @param  {Number} max [最大值]
+ * @return {Number}     [min-max间的随机整数]
+ */
+
+// Math.random();//0-1（不包括1）的数
+/*
+    Math.random()		        res
+    0					min
+    1					max
+ */
+
+function randomNumber(min,max){
+	return parseInt(Math.random()*(max-min+1))+min;
+}
+
+// randomNumber(0,10);
+//包括0和10
+```
