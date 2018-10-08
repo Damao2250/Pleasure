@@ -275,14 +275,178 @@ continue：//跳过本次循环，继续下一次循环
         - 遍历（for...in）
 
 ## String
-
+* 创建
+    + 字面量
+    + 构造函数
+* 操作
+    + 属性 length
+    + 方法
+        - 读取
+            + charAt(idx)
+            + 方括号[idx]
+        - 查找&替换
+            + indexOf()/lastIndexOf()
+            + search()
+            + match()
+            + replace()
+        - 截取
+            + substring(start,[end])
+            + slice(start,[end])
+            + substr(start,[len])
+        - 拆分
+            + split(分隔符)
+        - 大小写
+            + toLowerCase()
+            + toUpperCase()
+    + 正则表达式
+        - 创建
+            + 字面量
+            + 构造函数
+        - 参数
+            + i:忽略大小写
+            + g:全局匹配
+    + 编码
+        - charCodeAt()
+        - Staring.fromCharCode()
+        - 分类
+            + ASCII
+            + Unicode
+            + utf-8
 ## Date
 
 ## Math
-
+* 属性
+    + PI
+* 方法
+    + 取整
+        - Math.round()
+        - Math.cell()
+        - Math.floor()
+    + Math.max()
+    + Math.min()
+    + Math.abs()
+    + Math.pow(x,y)
+    + Math.sqrt()
+    + Math.random()
+    + 三角函数
+        - Math.sin()
+        - Math.cos()
+        - Math.tan()
+        - 弧度
 ## BOM
+* 全局作用域
+    - 全局作用域下声明的变量会成为window的属性
+    - 避免全局环境的污染
+* window对象
+    - 属性
+        - innerWidth
+        - innerHeight
+        - outerWidth
+        - outerHeight
+        - scrollX/scorllY
+    - 方法
+        - 滚动相关
+            + scrollTop(x,y)
+            + scrollBy(ox,oy)
+        - 系统弹窗
+            + alert()
+            + confirm()
+            + prompt()
+            + open(url,name,options)
+            + close()
+            + print()
+        - 数据类型
+            + String()
+            + Number()
+            + Boolean()
+            + Array()
+            + Object()
+            + Function()
+            + Date()
+            + Undefined
+            + Null
+        - 其他
+            + parseInt()
+            + parseFloat()
+            + isNaN()
+    + 事件
+        - onlond
+        - onresize
+        - onscroll
+        - onbeforeunload
+    + 属性对象
+        - Math
+        - console    log()
+        - location
+            + href
+            + search
+            + has
+            + reload()
+        - history
+            + length
+            + back()
+            + forward()
+            + go()
+        - document
 
 ## DOM
+* 节点
+    + 分类
+        - 元素节点(1)
+        - 文本节点(3)
+        - 属性节点(2)
+    + 属性
+        - nodeType
+        - nodeName
+        - nodeValue
+* 获取元素节点方式
+    + document.getElementById()
+    + document.getElementByTagName()
+    + document.getElementByClassName()
+    + document.getElementByName()
+* 节点关系
+    + 父节点
+        - parentNode == parentElement
+    + 子节点
+        - childNodes == children
+        - firstChild == firstElementChild
+        - lastChild = lastElementChild
+    + 兄弟节点
+        - previousSibling == previousElementSibling
+        - nextSibling == nextElementSlbling
+    + 节点操作
+        - 创建
+            - document.createElement()
+            - document.createTextNode()
+        - 插入
+            - parent.appengChild(ele)
+            - parent.insertBefore(newEle,node)
+        - 删除
+            - parent.removeChild(ele)
+        - 复制
+            - ele.cloneNode()
+        - 改
+            - DOM属性
+                - innerHTML
+                - innerText
+                - outerHTML
+                - outerText
+                - style:内联样式
+                - className
+                - id
+            - html属性
+                - setAttribute(attr,val)
+                - getAttribute(attr)
+                - removeAttribute(attr)
+                - hasAttribute(attr)
+    + 盒模型属性
+        - offsetWidth
+        - offsetHeight
+        - offsetLeft
+        - offsetTop
+    + 获取css样式
+        - getComputedStyle(ele,[p])
+        - ele.currentStyle
 
 ## 事件
 
