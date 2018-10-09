@@ -312,6 +312,23 @@ continue：//跳过本次循环，继续下一次循环
             + ASCII
             + Unicode
             + utf-8
+## json字符串
+* 格式要求
+    + 属性名双引号
+    + 值类型
+        - Number
+        - String （必须使用双引号）
+        - Boolean
+        - Objcet
+        - Array
+        - Null
+    + 不能有注释
+    + 不能有多余的逗号
+* 操作
+    + JSON
+        - stringify(object/array)
+        - parse(json)
+
 ## Date
 
 ## Math
@@ -449,8 +466,96 @@ continue：//跳过本次循环，继续下一次循环
         - ele.currentStyle
 
 ## 事件
+* 事件绑定方式
+    + html属性
+    + DOM节点绑定
+    + 事件监听
+        - addEventListener(type,fn,capture)
+        - IE8:arrachEvent(type,fn)
+* 事件分类
+    + 鼠标事件
+        - onclick
+        - ondblclick
+        - onmousedown
+        - onmouseup
+        - onmousemove
+        - onmouseout
+        - onmouseover
+        - onmouseleave
+        - onmouseenter
+        - oncontextmenu
+    + 键盘事件
+        - onkeydown
+        - onkeyup
+        - onkeypress
+    + 表单
+        - onchange
+    + 其他
+        - onload
+        - onresize
+        - onscroll
+* 事件传播
+    + DOM树
+    + 冒泡：事件委托
+    + 捕获：事件监听
+* 浏览器默认行为
+    + 链接跳转
+    + 右键菜单
+    + 表单提交
+* Event
+    + 获取方式
+        - 标准：事件处理函数的第一个参数
+        - IE8: window.event
+    + 属性
+        - 鼠标
+            - button
+                - 0:左键
+                - 1:滚轮
+                - 2:右键
+            - 光标位置
+                - clinentX/clinentY
+                - pageX/pageY
+                - screenX/screenY
+                - offsetX/offsetY
+            - 键盘
+                - keyCode/which
+                    - 37,38,39,40:方向键
+                    - 13:回车,27:ESC,32:空格
+                - altKey
+                - shiftKey
+                - ctrlKey
+            - 事件源对象
+                - target
+                - srcElement
+        + 方法
+            - 阻止默认行为
+                - 标准: preventDefault()
+                - IE8: returnValue=false
+            - 停止事件传播
+                - 标准: stopPrepagation()
+                - IE8: cancelBubble=true
 
 ## Cookie
+* 协议
+    + 网络协议：ip
+    + 通信协议：TCP、UDP、http/https
+* 操作
+    + 读取
+        - document.cookie
+        - 读取本域名下所有可访问的cookie
+    + 写入
+        - document.cookie='name=value'
+        - 一次写入一个，只能写入字符串
+    + 参数
+        - expires
+        - path
+        - domain
+        - secure
+* 限制
+    - 只能访问本域名下的cookie
+    - 只能访问当前路径下cookie
+    - 数量<=50;大小<=2M
+
 
 ## RegExp(正则)
 
