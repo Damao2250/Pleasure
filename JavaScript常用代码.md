@@ -72,3 +72,18 @@ function randomColor(num){
 //randomColor();
 //rgb(0,0,0)
 ```
+
++ 数据类型判断
+
+```js
+/**
+ * 数据类型判断
+ * @param  {Every} data [任意数据类型]
+ * @return {String}      [返回数据类型对应的字符串]
+ */
+function type(data){
+	return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+}
+//type(10);//number
+//type(/10/);//regexp
+```
