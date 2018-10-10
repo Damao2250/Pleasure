@@ -87,3 +87,25 @@ function type(data){
 //type(10);//number
 //type(/10/);//regexp
 ```
+
+* 扩展运算符
+	+ 扩展运算符用三个点号表示，功能是把数组或类数组对象展开成一系列用逗号隔开的值
+```js
+var num = function(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+var arr = [1, 2, 3];
+
+//传统写法
+num(arr[0], arr[1], arr[2]);
+
+//使用扩展运算符
+num(...arr);
+//1
+//2
+//3
+```
+
