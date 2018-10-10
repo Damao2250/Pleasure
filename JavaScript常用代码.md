@@ -108,4 +108,10 @@ num(...arr);
 //2
 //3
 ```
+```js
+//扩展运算符简单应用
+//arrayMax 返回数组中的最大值
+const arrayMax = arr => Math.max(...arr);
+// arrayMax([10, 1, 5]) -> 10
+```
 
