@@ -558,8 +558,78 @@ continue：//跳过本次循环，继续下一次循环
 
 
 ## RegExp(正则)
+* 创建
+    + 字面量：/cdf/
+    + 构造函数：new RegExp('cdf')
+    + 参数
+        - i:忽略大小写
+        - g:全部匹配
+        - m:多行匹配
+    + 语法
+        - 字符类
+            - \d:数字   \D:非数字
+            - \w:数字字母下划线     \W:非数字字母下划线
+            - \s:空格   \S:非空格
+            - \b:单词边界   \B:非单词边界
+            - .:除换行符以外的所有字符
+        - 数量词
+            - {n}:匹配n个字符
+            - {2,5}:匹配2-5个字符
+            - {1,}:匹配一个或一个以上字符 <=> +
+            - *:匹配0个或0个以上字符 <=> {0,}
+            - ?:匹配0个或1个字符 <=> {0,1}
+        - 特殊字符
+            - ():分组
+                - $1-$9
+                - \1-\9
+            - []:表示一个字符，里面的字符为或的关系
+            - |:或
+        - 锚点定位
+            - ^:开始
+            - $:结束
+        - 模式
+            - 贪婪模式（默认）: 尽可能多匹配
+            - 非贪婪模式
+                - 尽可能少匹配
+                - 在数量词后加?
+    + 方法
+        - 正则方法
+            - test()
+            - exec()
+        - 支持正则表达式的方法
+            - match()
+            - search()
+            - replace()
+            - split()
 
 ## ES5
+* 模式
+    + 正常模式
+    + 严格模式 'use strict'(全局、局部)
+* 兼容性：IE9 
+* 数组扩展
+* document加载事件
+    + onreadystatechange
+        - document.readyState
+            - interactive
+            - complete
+    + DOMContentLoaded
+        - 必须使用事件监听器绑定事件
+* 获取页面元素
+    + querySelector(css selector)
+    + querySelectorAll(css selector)
+* 函数扩展
+    + bind():改变函数的this指向
+* 类名操作 classList
+    + length:类名长度
+    + add():添加类名
+    + remove():删除类名
+    + toggle():切换类名
+    + contains():判断是否存在某个类名
+* 自定义属性操作 dataset
+    + 返回一个包含所有自定义属性（键值）的对象
+    + data-XXX  (符合w3c标准)
+    
 
 ## ES6
 
