@@ -30,3 +30,25 @@ input::placeholder{
     text-align: center;
 }
 ```
++ 图标与文字对齐
+```html
+<div>
+    <span></span>这里是文字。确保span标签跟文字在div里垂直对齐。
+</div>
+```
+```css
+div{
+    width: 550px;
+    height: 100px;
+    border:1px solid red;
+    line-height: 100px;
+}
+span{
+    display:inline-block;
+    vertical-align:middle;
+    width: 50px;
+    height: 50px;
+    background-color: pink;
+    margin-top: 0px;/*调margin时文字不会跟着动*/
+}
+```
