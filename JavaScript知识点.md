@@ -632,6 +632,89 @@ continue：//跳过本次循环，继续下一次循环
     
 
 ## ES6
+* 声明 
+    + 变量
+        - 块级作用域{}
+        - 声明不提前
+        - 不能在同一个作用域内声明多个同名变量
+    + 常量 （const）
+        - 声明后无法修改
+* 解构
+    + 数组
+    + 对象
+    + 结构失败
+        - undefined
+        - 默认值
+* 字符串扩展
+    + 方法
+        - includes()
+        - startsWith()
+        - endsWith()
+        - repeat(n)
+    + 字符串模板
+        - 格式:``
+        - 内部使用变量:`<div>${num}</div>`
+        - 随意执行
+* 对象扩展
+    + Object.assign(o1,o2,...on)
+    + 语法改变
+        - 声明对象时可以写入变量
+            - {name:'xxx',[name]}
+            - {name}
+        - 方法的简写
+* 函数扩展
+    + 箭头函数
+        - 函数的缩写
+            - 简写function
+            - 简写()
+            - 简写{}
+            - 简写return
+        - 箭头函数没有this
+    + 剩余参数 
+    + 默认参数
+    + 生成器函数
+        - 声明方式
+        - yield:暂停
+        - 执行后得到一个是对象
+            - next()
+            - 得到对象格式：{value:xx,done:false}
+* Symbol
+    + 独一无二
+    + 创建
+        - var s = Symbol()
+        - var s = Symbol('xxx')
+        - var s = Symbol.for('xxx')
+    + 用途
+        - 对象的私有属性
+* set集合
+    + 类似于数组的数据集合
+        - 自动去重
+    + 创建
+        - var s = new Set()
+    + 方法
+        - add()
+        - delete()
+        - clear()
+        - keys()
+        - values()
+        - entries()
+        - has()
+    + 遍历
+        - forEach()
+        - for...of
+* Map映射
+    + 创建类似于对象（键/值）
+    + 创建
+        - var m = new Map()
+    + 方法
+        - set(key,val)
+        - get(key)
+        - delete()
+        - clear()
+        - keys()
+        - values()
+        - entries()
+        - has()
 
 ## OOP（面向对象思想）
 
