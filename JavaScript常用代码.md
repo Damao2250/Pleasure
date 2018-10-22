@@ -89,7 +89,7 @@ function type(data){
 ```
 
 + Cookie操作
-````js
+```js
 // Cookie的操作
 var Cookie = {
 	/**
@@ -177,9 +177,323 @@ var Cookie = {
 // Cookie.remove('password');
 // Cookie.get('left');//47px;
 ```
++ 节点操作
+```js
+var Element = {
+	// 对象的方法
+
+	/**
+	 * 过滤非元素节点
+	 * @param  {Array} nodes [节点集合]
+	 * @return {Array} [返回只包含元素节点的数组]
+	 */
+	get:function(nodes){
+		// 用于存放结果
+		var res = [];
+
+		// 删除非元素节点
+		for(var i=0;i<nodes.length;i++){
+			if(nodes[i].nodeType === 1){
+				res.push(nodes[i]);
+			}
+		}
+
+		return res;
+	},
+
+	/**
+	 * [得到ele元素下的所有子元素]
+	 * @param  {Element} ele [父元素]
+	 * @return {Array}     [ele元素的所有子元素]
+	 */
+	children:function(ele){
+		// var res = [];
+
+		// for(var i=0;i<ele.childNodes.length;i++){
+		// 	if(ele.childNodes[i].nodeType === 1){
+		// 		res.push(ele.childNodes[i]);
+		// 	}
+		// }
+
+		// return res;
+
+		return this.get(ele.childNodes);
+	},
+
+	// 得到前一个元素节点
+	prev:function(ele){
+		var res = ele.previousSibling;
+
+		// while循环方案
+		// while(res.nodeType !== 1 && res !== null){
+		// 	res = res.previousSibling
+		// }
+
+		// return res;
+
+
+		// 递归方案
+		if(res===null || res.nodeType === 1){
+			return res;
+		}
+
+		return this.prev(res);
+	},
+
+	// 得到后一个元素节点
+	next:function(ele){
+		var res = ele.nextSibling;
+		if(res===null || res.nodeType === 1){
+			return res;
+		}
+
+		return this.next(res);
+	},
+
+	// 拓展：兼容IE8-
+	getByClass:function(name){
+
+	}
+}
+```
+
++ 获取元素css样式
+```js
+/**
+ * [获取元素的css样式，兼容IE8-]
+ * @param  {Element} ele  [获取样式的元素]
+ * @param  {String} attr [css属性名]
+ * @return {String}      [返回attr对应的css属性值]
+ */
+function getCss(ele,attr){
+	// 不要判断是否为IE6,IE7,IE8
+	// 而是判断用户的浏览器是否支持某一个方法
+	if(window.getComputedStyle){
+		// 标准浏览器
+		return getComputedStyle(ele)[attr];
+	}else if(ele.currentStyle){
+		// IE6,7,8
+		return ele.currentStyle[attr];
+	}else{
+		// 其他浏览器，直接返回内联样式
+		return ele.style[attr];
+	}
+}
+
+
+// getCss(box,'font-size');//30px
+```
+
++ 元素绑定事件
+```js
+/**
+ * 给元素绑定事件，兼容IE8-
+ * @param  {Node}  ele       [绑定事件的元素]
+ * @param  {String}  type      [事件类型]
+ * @param  {Function}  handler   [事件处理函数]
+ * @param  {Boolean} isCapture [是否捕获]
+ */
+function bind(ele,type,handler,isCapture){
+	// 标准浏览器
+	if(ele.addEventListener){
+		ele.addEventListener(type,handler,isCapture);
+	}
+
+	// IE8-
+	else if(ele.attachEvent){
+		ele.attachEvent('on'+type,handler);
+	}
+
+	// 其他浏览器
+	else{
+		ele['on'+type] = handler;
+	}
+}
+
+// // 移除事件
+// function unbind(){
+
+// }
+
+
+// // 只能绑定一次的事件
+// function one(){
+
+// }
+
+var Event = {
+	// 绑定事件
+	bind:function(){},
+
+	// 移除事件
+	unbind:function(){},
+
+	// 只能绑定一次的事件
+	one:function(){}
+}
+
+// 封装函数时，如果不知如何下手
+// 先用
+// bind(box,'click',function(){},true);
+
+```
+
++ 动画函数1
+```js
+function animate(ele,attr,target){
+	// 拼接定时器名字width->widthTimer,opacity->opacityTimer
+	var timerName = attr + 'Timer';
+
+	clearInterval(ele[timerName]);
+	ele[timerName] = setInterval(function(){
+		// 获取当前值left,top,width,fontSize,opaicty.....
+		// var current = getComputedStyle(ele)[attr];
+		var current = getCss(ele,attr);//100px,16px,0.5,45deg...
+
+		// 提取单位
+		var unit = current.match(/[a-z]+$/);//
+
+		// 避免报错
+		if(unit===null){
+			unit = '';
+		}else{
+			unit = unit[0];
+		}
+
+		// 提取值
+		current = parseFloat(current);
+
+		// 计算缓冲速度
+		// 避免速度过小，同时避免速度为0
+		var speed = (target-current)/10;
+
+		if(attr === 'opacity'){
+			// 避免小数位过多
+			current = current.toFixed(2)*1;
+
+			if( speed<0 && speed>-0.01){
+				speed = -0.01;
+			}
+
+			if( speed>0 && speed<0.01){
+				speed = 0.01;
+			}
+			// console.log(speed)
+			// speed = speed>0 ? 0.01 : -0.01;
+		}else{
+			speed = speed>0 ? Math.ceil(speed) : Math.floor(speed)
+		}
+
+		var val = current + speed;
+
+		// console.log(val);
+
+		// 到达目标值
+		// 停止定时器
+		if(val === target){
+			clearInterval(ele[timerName]);
+
+			val = target;
+		}
+
+
+		ele.style[attr] = val + unit;
+
+
+	},30);
+}
+
+// animate(div,'left',200);
+```
+
++ 动画函数2
+```js
+function animate(ele,options,callback){//undefined
+	// target,attr
+	// 先获取定时器数量
+	var timerLen = 0;
+	for(var key in options){
+		timerLen++;
+
+		(function(attr){
+			var timerName = attr + 'Timer';
+
+			// 获取目标值
+			var target = options[attr];
+
+			clearInterval(ele[timerName]);
+			
+			ele[timerName] = setInterval(function(){
+				var current = getCss(ele,attr);//100px,16px,0.5,45deg...
+
+				// 提取单位
+				var unit = current.match(/[a-z]+$/);//
+
+				// 避免报错
+				if(unit===null){
+					unit = '';
+				}else{
+					unit = unit[0];
+				}
+
+				// 提取值
+				current = parseFloat(current);
+
+				// 计算缓冲速度
+				// 避免速度过小，同时避免速度为0
+				var speed = (target-current)/10;
+
+				if(attr === 'opacity'){
+					// 避免小数位过多
+					current = current.toFixed(2)*1;
+
+					if( speed<0 && speed>-0.01){
+						speed = -0.01;
+					}
+
+					if( speed>0 && speed<0.01){
+						speed = 0.01;
+					}
+					// console.log(speed)
+					// speed = speed>0 ? 0.01 : -0.01;
+				}else{
+					speed = speed>0 ? Math.ceil(speed) : Math.floor(speed);
+				}
+
+				var val = current + speed;
+
+				// console.log(val);
+
+				// 到达目标值
+				// 停止定时器
+				if(val === target){
+					clearInterval(ele[timerName]);
+
+					val = target;
+
+					// 每完成一个动画，数量减1
+					timerLen--;
+
+					// 当定时器为最后一个，且有回调函数时，执行回调函数
+					if(timerLen===0 && typeof callback === 'function'){
+						callback();
+					}
+				}
+
+
+				ele.style[attr] = val + unit;
+			},30);
+
+		})(key);
+	}
+}
+
+// animate(div,'left',200);
+```
 
 * 扩展运算符
 	+ 扩展运算符用三个点号表示，功能是把数组或类数组对象展开成一系列用逗号隔开的值
+
 ```js
 var num = function(a, b, c) {
     console.log(a);
@@ -204,4 +518,5 @@ num(...arr);
 const arrayMax = arr => Math.max(...arr);
 // arrayMax([10, 1, 5]) -> 10
 ```
+
 
