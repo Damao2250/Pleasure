@@ -38,6 +38,9 @@
 * 处理跨域方法三——WebSocket
 * 处理跨域方法四——postMessage
 
+* cors
+
+
     
 
 
