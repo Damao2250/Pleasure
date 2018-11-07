@@ -28,6 +28,7 @@
 5. 删除合集
 
 ```js
+    //collection为表名（下同）
     db.collection.drop()
 
     //以下实例删除了 user 数据库中的集合 site：
@@ -103,7 +104,7 @@
 
     //pretty() 方法以格式化的方式来显示所有文档
 
-    db.col.find().pretty()
+    db.collection.find().pretty()
 
 ```
 
