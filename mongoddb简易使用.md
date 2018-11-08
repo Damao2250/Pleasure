@@ -108,3 +108,9 @@
 
 ```
 
+11. 根据 _id 删除
+
+    
+    + 需要先 var ObjectID = require('mongodb').ObjectID;
+    + 然后再 collection.findAndRemove({_id: new ObjectID(id)}
+
