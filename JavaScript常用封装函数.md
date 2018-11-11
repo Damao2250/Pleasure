@@ -491,6 +491,35 @@ function animate(ele,options,callback){//undefined
 // animate(div,'left',200);
 ```
 
++ 时间戳转化时间格式
+
+```js
+//formatDate(123456789) ---> 年-月-日 时：分：秒
+//formatDate(123456789,1) ---> 年-月-日 时：分
+//formatDate(123456789,0) ---> 年-月-日
+function formatDate(secs,format){
+	var t = new Date(secs);
+	var year = t.getFullYear();
+	var month = t.getMonth() + 1;
+	if(month < 10){month = '0' + month;}
+	var date = t.getDate();
+	if(date < 10){date = '0' + date;}
+	var hour = t.getHours();
+	if(hour < 10){hour = '0' + hour;}
+	var minute = t.getMinutes();
+	if(minute < 10){minute = '0' + minute;}
+	var second = t.getSeconds();
+    if(second < 10){second = '0' + second;}
+    if(format===0){
+        return year+'-'+month+'-'+date;
+    }else if(format===1){
+        return year+'-'+month+'-'+date+' '+hour+':'+minute;
+    }else{
+        return year+'-'+month+'-'+date+' '+hour+':'+minute+':'+second;   
+    }
+}
+```
+
 * 扩展运算符
 	+ 扩展运算符用三个点号表示，功能是把数组或类数组对象展开成一系列用逗号隔开的值
 
