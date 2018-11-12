@@ -520,6 +520,79 @@ function formatDate(secs,format){
 }
 ```
 
++  防抖
+```js
+/**
+ *  防抖
+ * 	其中一种解决方案就是每次用户停止输入后，延迟超过500ms时，才去搜索此时的String，这就是防抖。 
+ *  原理：将若干个函数调用合成为一次，并在给定时间过去之后仅被调用一次。
+**/
+function debounce(fn, delay) {
+  // 维护一个 timer，用来记录当前执行函数状态
+  let timer = null;
+  return function() {
+    // 通过 ‘this’ 和 ‘arguments’ 获取函数的作用域和变量
+    let context = this;
+    let args = arguments;
+    // 清理掉正在执行的函数，并重新执行
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      fn.apply(context, args);
+    }, delay);
+  }
+}
+let flag = 0; // 记录当前函数调用次数
+// 当用户滚动时被调用的函数
+function foo() {
+  flag++;
+  console.log('Number of calls: %d', flag);
+}
+
+// 在 debounce 中包装我们的函数，过 2 秒触发一次
+document.body.addEventListener('scroll', debounce(foo, 2000));
+
+```
+
++ 节流
+
+ ```js
+/**
+ *  节流
+ * 	原理：节流函数不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数。（一段时间内只允许函数执行一次） 
+ * 	代码实现有两种，一种是时间戳，另一种是定时器 
+ *  应用场景如： 输入框的联想、可以限定用户在输入时，只在每两秒钟响应一次联想(或是两秒钟发送一次搜索请求)
+ */
+
+//1.定时器
+var throttle = function (func, delay) {
+  var timer = null;
+  return function () {
+    var context = this;
+    var args = arguments;
+    if (!timer) {
+      timer = setTimeout(function () {
+        func.apply(context, args);
+        timer = null;
+      }, delay);
+    }
+  }
+}
+
+//2.时间戳
+function throttle(func, delay){
+  let prev = Date.now();
+  return function(){
+    const context = this;
+    const args = arguments;
+    const now = Date.now();
+    if(now - prev >= delay){
+      func.apply(context, args);
+      prev = Date.now();
+    }
+  }
+}
+```
+
 * 扩展运算符
 	+ 扩展运算符用三个点号表示，功能是把数组或类数组对象展开成一系列用逗号隔开的值
 
