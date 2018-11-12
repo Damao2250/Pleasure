@@ -551,6 +551,12 @@ function foo() {
 // 在 debounce 中包装我们的函数，过 2 秒触发一次
 document.body.addEventListener('scroll', debounce(foo, 2000));
 
+/**
+ * debounce函数封装后，返回内部函数
+ * 每一次事件被触发，都会清除当前的timer然后重新设置超时并调用。这会导致每一次高频事件都会取消前一次的超时调用，导致事件处理程序不能被触发
+ * 只有当高频事件停止，最后一次事件触发的超时调用才能在delay时间后执行
+**/
+
 ```
 
 + 节流
