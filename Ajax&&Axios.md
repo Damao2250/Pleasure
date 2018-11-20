@@ -57,15 +57,36 @@
     + 最后服务器把准备的数据通过HTTP协议返回给客户端，客户端再调用执行之前声明的回调函数（fn），对返回的数据进行操作。
 
     ```js
-       <script type="text/javascript" >
-            function fn(data) {
-                console.log(data.msg);
-            }
-        </script>
-        <script type="text/javascript" src = "http://crossdomain.com/jsonServerResponse?jsonp=fn"></script>
+    //前端
+    <script type="text/javascript" >
+        function fn(data) {
+            console.log(data.msg);
+        }
+    </script>
+    <script type="text/javascript" src = "http://crossdomain.com/jsonServerResponse?jsonp=fn"></script>
 
-        //其中 fn 是客户端注册的回调的函数，目的获取跨域服务器上的json数据后，对数据进行在处理。
-        //最后服务器返回给客户端数据的格式为：fn({ msg:'this  is  json  data'})
+    //其中 fn 是客户端注册的回调的函数，目的获取跨域服务器上的json数据后，对数据进行在处理。
+    //最后服务器返回给客户端数据的格式为：fn({ msg:'this  is  json  data'})
+    ```
+
+    ```js
+    //前端（原生）
+     // abc
+      window.abc = data => {
+        console.log(data.data.cards);
+      };
+      var script = document.createElement("script");
+      script.src = `http://localhost:3000/home?callback=abc`;
+      document.body.appendChild(script);
+    ```
+    ```js
+    //后端（服务端）
+    router.get('/home', function (req, res, next) {
+        res.jsonp({
+            "ok": 1,
+            "data": {}
+        });
+    });
     ```
 5. jQuery的jsonp形式
 
@@ -99,6 +120,12 @@
 
     header("Access-Control-Allow-Origin:*");
     header("Access-Control-Allow-Methods:POST,GET");
+
+    //使用express脚手架时全局开cors（允许全部域名 * ）
+    app.use(function(req,res,next){
+        res.append("Access-Control-Allow-Origin","*");
+        next();
+    })
     ```
 3. 例子
     例如：网站 http://localhost:8080/ 页面要请求 http://localhost:3000/users/userlist 页面，userlist页面返回json字符串格 {name:'Damao',gender:'male',career:'HTML5'}
@@ -107,10 +134,23 @@
     //在服务器端设置同源策略地址
     router.get("/userlist", function (req, res, next) {
         var user = {name: 'Damao', gender: 'male', career: 'HTML5'};  
+        //允许单个域名
         res.writeHeader(200,{"Access-Control-Allow-Origin":'http://localhost:8080'});  
         res.write(JSON.stringify(user));  
         res.end();  
     }); 
+    ```
+
+4. 例子（axios）
+    ```js
+    //axios
+    //需先开cors --->  
+    //写法（需引入axios）
+    this.$axios.get("http://localhost:3000/home").then((response)=>{
+            console.log(response);
+        }).catch((err)=>{
+            console.log(err);
+        })
     ```
 
 * 处理跨域方法三——WebSocket
@@ -174,7 +214,41 @@
     ```
 * 处理跨域方法四——postMessage
 
-* cors
+    如果两个网页不同源，就无法拿到对方的DOM。典型的例子是iframe窗口和 window.open方法打开的窗口，它们与父窗口无法通信。HTML5为了解决这个问题，引入了一个全新的API：跨文档通信 API（Cross-document messaging）。这个API为window对象新增了一个 window.postMessage 方法，允许跨窗口通信，不论这两个窗口是否同源。
+
+    postMessage方法的第一个参数是具体的信息内容，第二个参数是接收消息的窗口的源（origin），即"协议 + 域名 + 端口"。也可以设为 *，表示不限制域名，向所有窗口发送。
+
+    接下来我们看个例子： http://localhost:63342/index.html页面向 http://localhost:3000/message.html传递“跨域请求信息”
+
+
+```js
+//发送信息页面 http://localhost:63342/index.html
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">  
+    <title>跨域请求</title>   
+</head>  
+<body>
+    <iframe src="http://localhost:3000/users/reg" id="frm"></iframe>  
+    <input type="button" value="OK" onclick="run()">  
+</body>  
+</html>  
+<script>
+    function run(){    
+        var frm=document.getElementById("frm");  
+        frm.contentWindow.postMessage("跨域请求信息","http://localhost:3000");  
+    }  
+</script>
+```
+```js
+//接收信息页面 http://localhost:3000/message.html
+window.addEventListener("message",function(e){  
+    //通过监听message事件，可以监听对方发送的消息。
+    console.log(e.data);  
+},false);  
+```
+
+
 
 
     
