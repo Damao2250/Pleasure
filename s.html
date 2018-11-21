@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.con{
+			padding: 0 220px;
+		}
+		.center{
+			background: #ffcc66;
+			float: left;
+			width: 100%;
+		}
+		.l{
+			width: 200px;
+			height:400px;
+			background: #66ccff;
+			float: left;
+			position: relative;
+			left: -220px;
+			margin-left: -100%;
+		}
+		.r{
+			width: 200px;
+			height:400px;
+			background: #ccff66;
+			float: left;
+			position: relative;
+			right: -220px;
+			margin-left: -200px;
+		}
+	</style>
 </head>
 <body>
-    <div id="app">  
-        <input type="text" id="txt">
-        <p id="show"></p>
-    </div>
+	<div class="con">
+		<div class="center">
+			<h1>圣杯布局</h1>
+		</div>
+		<div class="l"></div>
+		<div class="r"></div>
+	</div>
 </body>
-
-<script type="text/javascript">  
-console.log(Object.defineProperty())
-    var obj = {}   
-    Object.defineProperty(obj, 'txt', {       
-        get: function() {
-            return obj
-        },
-        set: function(newValue) {
-                document.getElementById('txt').value = newValue
-                document.getElementById('show').innerHTML = newValue
-            }
-    })
-    document.addEventListener('keyup', function(e) {
-        obj.txt = e.target.value
-    })
-</script>
 </html>
