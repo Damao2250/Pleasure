@@ -105,7 +105,7 @@
     });
     ```
 
-* 处理跨域方法二——CORS
+* 处理跨域方法二——CORS（全称是"跨域资源共享"）
 
 1. CORS原理
 
@@ -117,6 +117,8 @@
     + 优点在于功能更加强大支持各种HTTP Method，缺点是兼容性不如JSONP。
     ```js
     //只需要在服务器端做一些小小的改造即可
+
+    //访问控制允许源
 
     header("Access-Control-Allow-Origin:*");
     header("Access-Control-Allow-Methods:POST,GET");
