@@ -2,60 +2,68 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="refresh" content="5;url=http://www.damao2250.com">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Document</title>
-	<style>
-		.con{
-			padding: 0 220px;
-		}
-		.center{
-			background: #ffcc66;
-			float: left;
-			width: 100%;
-		}
-		.l{
-			width: 200px;
-			height:400px;
-			background: #66ccff;
-			float: left;
-			position: relative;
-			left: -220px;
-			margin-left: -100%;
-		}
-		.r{
-			width: 200px;
-			height:400px;
-			background: #ccff66;
-			float: left;
-			position: relative;
-			right: -220px;
-			margin-left: -200px;
-		}
+	<style type="text/css">
+		html,body,header,div,main,p,span,ul,li{ margin: 0; padding: 0; }
+		#refreshContainer li{ background-color: #eee; margin-bottom: 1px; padding: 20px 10px; }
+		.refreshText{ position: absolute; width: 100%; line-height: 50px; text-align: center; left: 0; top: 0; }
 	</style>
 </head>
 <body>
-	<div class="con">
-		<div class="center">
-			<h1>圣杯布局</h1>
-		</div>
-		<div class="l"></div>
-		<div class="r"></div>
-	</div>
+<main>
+	<p class="refreshText"></p>
+	<ul id="refreshContainer">
+		<li>111</li>
+		<li>222</li>
+		<li>333</li>
+		<li>444</li>
+		<li>555</li>
+		<li>111</li>
+		<li>222</li>
+		<li>333</li>
+		<li>444</li>
+		<li>555</li>
+		<li>111</li>
+		<li>222</li>
+		<li>333</li>
+		<li>444</li>
+		<li>555</li>
+	</ul>
+</main>
 
-	<script>
-		function num(b){
-			var a =1;
-			return b;
-			
-		}
-		var b = function num1(){
-			console.log(a);
-			
-		}
-
+<script type="text/javascript">
+	(function(window) {
+		var _element = document.getElementById('refreshContainer'),
+		  _refreshText = document.querySelector('.refreshText'),
+		  _startPos = 0,
+		  _transitionHeight = 0;
+		_element.addEventListener('touchstart', function(e) {
+			console.log('初始位置：', e.touches[0].pageY);
+			_startPos = e.touches[0].pageY;
+			_element.style.position = 'relative';
+			_element.style.transition = 'transform 0s';
+		}, false);
 		
-	</script>
+		_element.addEventListener('touchmove', function(e) {
+			console.log('当前位置：', e.touches[0].pageY);
+			_transitionHeight = e.touches[0].pageY - _startPos;
+			
+			if (_transitionHeight > 0 && _transitionHeight < 60) {
+				_refreshText.innerText = '下拉刷新';
+				_element.style.transform = 'translateY('+_transitionHeight+'px)';
+				if (_transitionHeight > 55) {
+				  _refreshText.innerText = '释放更新';
+				}
+			}				
+		}, false);
+		_element.addEventListener('touchend', function(e) {
+			_element.style.transition = 'transform 0.5s ease 1s';
+			_element.style.transform = 'translateY(0px)';
+			_refreshText.innerText = '更新中...';
+			// todo...
+		}, false);
+	})(window);
+</script>
 </body>
 </html>
