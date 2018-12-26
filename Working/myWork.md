@@ -69,3 +69,4 @@
 
 ## 12/26
 + 修改公积金组件 （2） query/qu1 handprint/ha1
++ 法律服务机构查询（ lawyerServiceOrganizationQuery ） 法律服务人员查询( lawyerServicePeopleQuery ) --> index && OrganizationListSearch
