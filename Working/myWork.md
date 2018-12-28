@@ -71,6 +71,25 @@
 + 修改公积金组件 （2） query/qu1 handprint/ha1
 + 法律服务机构查询（ lawyerServiceOrganizationQuery ） 法律服务人员查询( lawyerServicePeopleQuery ) --> index && OrganizationListSearch
 
-## 12/27
+## 12/27 (12.27 9:00 - 12.28 3:30)
 + 法律服务人员查询( lawyerServicePeopleQuery ) 数据渲染
 + 法律服务机构查询（ lawyerServiceOrganizationQuery ）数据渲染
+	(律师事务所 --> id:100
+	律师协会 --> id:115 type:1
+	公证处 --> id:110
+	公正协会 --> id:1115 type:2
+	基层法律服务所 --> id:109
+	法律援助机构 --> id:115 type:3
+	人民调解委员会 --> id:130
+	仲裁委员会 --> id:140
+	司法鉴定机构 --> id:200
+	公共法律服务中心 --> id:170)
++ mock 无法使用 main.js 里的 process.env.NODE_ENV === 'development' && require('./mock')  被注释
+
+##  12/28 (14:30)
++ 完善 法律服务人员查询( lawyerServicePeopleQuery ) 数据渲染
+执业律师（代表、顾问） --> id:100
+律师实习人员 --> id:xxx  （未知）
+公证员 --> id:110
+司法鉴定人 --> id:120
+人民调解员 --> id:130
