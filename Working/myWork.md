@@ -96,3 +96,6 @@
 
 ## 12/29 
 完善 法律服务人员查询( lawyerServicePeopleQuery )
+
+## 12/30
+完善 法律服务人员查询( lawyerServicePeopleQuery ) 完成详细页 部分参数未找到 表格部分待优化  
