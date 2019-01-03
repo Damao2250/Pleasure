@@ -103,3 +103,13 @@
 ## 1/2
 修复 法律服务人员查询( lawyerServicePeopleQuery ) 专兼职显示问题、表格数据无法对接上（写mock测试）、双重滚动条
 实习律师接口、处罚处分对应字段未找到、搜索接口未完成、
+
+## 1/3
+法律服务人员查询( lawyerServicePeopleQuery ) 分页&&搜索
+机构名称  传参
+"pagerOrgPersonParam.legalServiceOccupation": "100",
+"pagerOrgPersonParam.pageSize”:”10”,
+"pagerOrgPersonParam.currentPage”:”1”
+"pagerOrgPersonParam.opiorgname:”1”
+
+委托律师服务 界面构建
