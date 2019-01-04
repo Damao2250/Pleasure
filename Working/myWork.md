@@ -113,3 +113,7 @@
 "pagerOrgPersonParam.opiorgname:”1”
 
 委托律师服务 界面构建
+
+## 1/4
+委托律师服务 ( entrustingLawyerService )  完善页面
+委托司法鉴定 ( entrustedJudicialExpertise ) 完善页面
