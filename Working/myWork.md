@@ -122,3 +122,11 @@
 委托律师服务 ( entrustingLawyerService ) 
 委托司法鉴定 ( entrustedJudicialExpertise ) 
 表单验证  数据渲染
+
+## 1/8
+委托律师服务 ( entrustingLawyerService )   数据上传
+
+（ taiWanNotarialCheck ）
+台湾公证书校验  (notarial-check)
+公正办理 (transact-justly)
+
