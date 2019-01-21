@@ -77,7 +77,7 @@
 	(律师事务所 --> id:100
 	律师协会 --> id:115 type:1
 	公证处 --> id:110
-	公正协会 --> id:1115 type:2
+	公证协会 --> id:1115 type:2
 	基层法律服务所 --> id:109
 	法律援助机构 --> id:115 type:3
 	人民调解委员会 --> id:130
@@ -155,3 +155,11 @@
 ## 1/16
 电脑环境出错无法配置 npm包node-sass无法安装成功（升级node版本导致）
 
+## 1/17
+残疾认证注销 （ cancellationDisabilityCertificat ） 添加修改按钮修改已填信息 添加表单验证
+残疾人证迁出 （ emigrationDisabilityCertificat ）
+
+
+## 1/18
+残疾人证迁出 （ emigrationDisabilityCertificat ）数据封装
+公正办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
