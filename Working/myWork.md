@@ -163,3 +163,7 @@
 ## 1/18
 残疾人证迁出 （ emigrationDisabilityCertificat ）数据封装
 公正办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
+
+
+## 1/21
+公正办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
