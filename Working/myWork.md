@@ -172,3 +172,9 @@
 残疾认证注销 （ cancellationDisabilityCertificat ）
 残疾人证迁出 （ emigrationDisabilityCertificat ）
 公正办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
+
+## 1/23
+修改首页事项列表不超过四个的不显示更多
+在首页更多事项列表里添加新得会的政户、交管、出入境
+修改公正办理为公证办理
+修改公证办理拍照后不显示问题
