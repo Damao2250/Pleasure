@@ -128,26 +128,26 @@
 
 （ taiWanNotarialCheck ）
 台湾公证书校验  (notarial-check)
-公正办理 (transact-justly)
+公证办理 (transact-justly)
 
 ## 1/9
-公正办理 (transact-justly)
+公证办理 (transact-justly)
 
 委托司法鉴定 ( entrustedJudicialExpertise ) 
 
 ## 1/10
-公正办理 (transact-justly) 
+公证办理 (transact-justly) 
 
 遗留问题 二级联动 二级无数据是应隐藏 
 
 ## 1/11
-公正办理 (transact-justly) 界面补充 & 表单验证 & 拍照组件（待改进删除后重拍的图片顺序）
+公证办理 (transact-justly) 界面补充 & 表单验证 & 拍照组件（待改进删除后重拍的图片顺序）
 
 ## 1/14
-公正办理 (transact-justly)
+公证办理 (transact-justly)
 
 ## 1/15
-公正办理 (transact-justly)
+公证办理 (transact-justly)
 完成接口参数对接 
 调整界面 将台湾公证书校验与公证办理分离（分开两个路由，但文件未分离）
 遗留问题 返回上一步未清数据、选择地区没做loading 相同数据返回时导致没有数据返回假象、传图片时请求错误（已重新写调高拍仪接口的拍照组件）、数据返回还未做异常处理、表单身份证号未做验证 
@@ -162,19 +162,30 @@
 
 ## 1/18
 残疾人证迁出 （ emigrationDisabilityCertificat ）数据封装
-公正办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
+公证办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
 
 
 ## 1/21
-公正办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
+公证办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
 
 ## 1/22
 残疾认证注销 （ cancellationDisabilityCertificat ）
 残疾人证迁出 （ emigrationDisabilityCertificat ）
-公正办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
+公证办理 (transact-justly)（ taiWanNotarialCheckBL ） 接口打通  对接图片上传接口
 
 ## 1/23
 修改首页事项列表不超过四个的不显示更多
 在首页更多事项列表里添加新得会的政户、交管、出入境
-修改公正办理为公证办理
+修改公证办理为公证办理
 修改公证办理拍照后不显示问题
+
+## 1/24
+修复 公证办理 (transact-justly)（ taiWanNotarialCheckBL ） 选择地区查询机构接口
+社保修改pin （ socialSecurityCardPinCodeModification ） 完成前端界面
+
+## 1/25
+社保修改pin （ socialSecurityCardPinCodeModification ） 硬件接口对接
+
+## 1/28
+社保修改pin （ socialSecurityCardPinCodeModification ） 接口测试
+修复 公证办理 (transact-justly)（ taiWanNotarialCheckBL ） 图片上传接口（一次只能传一张）
