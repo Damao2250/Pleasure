@@ -189,3 +189,6 @@
 ## 1/28
 社保修改pin （ socialSecurityCardPinCodeModification ） 接口测试
 修复 公证办理 (transact-justly)（ taiWanNotarialCheckBL ） 图片上传接口（一次只能传一张）
+
+## 1/29
+社保修改pin （ socialSecurityCardPinCodeModification ） 接口测试( 已完成 )
