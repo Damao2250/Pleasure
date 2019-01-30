@@ -192,3 +192,7 @@
 
 ## 1/29
 社保修改pin （ socialSecurityCardPinCodeModification ） 接口测试( 已完成 )
+
+## 1/30
+社保修改pin（ socialSecurityCardPinCodeModification ） 接口测试 ( 增加提示 )
+
