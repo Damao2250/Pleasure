@@ -82,3 +82,25 @@ const selfFilter2 = function(fn,context){
   },[])
 }
 ```
+
+## 7. ES5 实现数组 some 方法
+
+```js
+const selfSome = function(fn,context){
+  let arr = Array.prototype.slice.call(this)
+
+  if(!arr.length) return false
+  let flag = false
+  for(let i = 0; i < arr.length; i++){
+    if(!arr.hasOwnProperty(i)) continue
+    let res = fn.call(context, arr[i],i,this)
+    if(res){
+      flag = true
+      break
+    }
+  }
+  return flag
+}
+
+// 执行 some 方法的数组如果是一个空数组，最终始终会返回 false，而另一个数组的 every 方法中的数组如果是一个空数组，会始终返回 true
+```
