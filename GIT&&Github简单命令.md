@@ -79,6 +79,13 @@ git push –u origin master
 //1.从远程库克隆到本地
 git clone 网站上的仓库地址
 //网站地址可以选择HTTPS协议（https://github.com...）、SSH协议（git@github.com...）。
+// 如果是自己的仓库可直接 add commit push
+
+// 2. 如果克隆之后无法推送到远程库 先本地与当前远程remote切断联系
+git remote remove origin
+// 再
+git remote add origin 网站上的仓库地址
+
 
 //SSH Key
 //如果选择SSH协议，必须将Ubuntu的公钥添加到GitHub上。
