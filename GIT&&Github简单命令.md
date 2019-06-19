@@ -1,34 +1,45 @@
 ```js
+
+git init 
+git add .
+git commit -m ''
+git remote add origin + git地址
+git push 
+
+
 //查看git的版本信息
 git --version  
-
 //配置用户信息
 git config --global user.email "xxx@163.com"
 git config --global user.name "xxx"
-
 //获取当前登录的用户&&登录用户的邮箱
 git config --global user.name   
 git config --global user.email  
 
+
+
 //初始化仓库
 git init
-
 //全部添加到缓存区
 git add .
-
 //添加版本信息
 git commit -m "对当前提交的描述信息" 
 
+
+
 //查看版本
 git log --oneline
+git log
 //比较差异
 //比较的是暂存区和工作区的差异
 git diff 
 //比较的是暂存区和历史区的差异
 git diff --cached
-
 //显示目录的状体 有没有添加或者修改文件
 git status
+
+
+
 
 //不需要服务器端提交的内容可以写到忽略文件 .gitignore 里
 .gitignore忽略内容如下：
@@ -38,10 +49,10 @@ git status
     */
 
 //回滚最近的一个版本 
-//查看
-git log
 //回滚
 git reset --hard HEAD/commit_id
+
+
 
 //分支管理
 //查看当前分支
@@ -67,6 +78,8 @@ git log --oneline --graph --decorate
 $ git branch -d 分支名
 // 删除某一个分支,无论是否合并都强制删除
 $ git branch -D 分支名  
+
+
 
 //与GitHub有关的：
 //先有本地库，后有远程库，将本地库push到远程库:
