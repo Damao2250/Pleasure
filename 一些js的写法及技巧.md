@@ -104,3 +104,56 @@ const selfSome = function(fn,context){
 
 // 执行 some 方法的数组如果是一个空数组，最终始终会返回 false，而另一个数组的 every 方法中的数组如果是一个空数组，会始终返回 true
 ```
+
+## 8.console.log()方法中%s的作用
+
+```js
+一、console.log("log信息");
+
+二、console.log("%s","first","second");
+
+输出结果:first second
+
+三.将对象转换为普通字符串后执行
+console.log("%s","guoyansi",{name:"思思博士"});
+//输出结果:guoyansi { name: '思思博士' }
+
+四、
+
+//将字符串作为数值进行转换
+console.log("%d","25.6");
+//输出结果:25.6
+console.log("%d","guoyansi");
+//输出结果:guoyansi
+
+五  输出%
+console.log("%%");
+//输出结果:%
+console.log("%%","gys");
+//输出结果:% gys
+
+六 将console.error信息输出到文件中去
+//页面代码:
+console.error("guoyansi is error");
+//利用node app.js 2>err.txt启动这个页面
+//会在同级目录下多一个err.txt文件.文件里面还有"guoyansi is error"
+
+ 
+
+七 直接在命令行启动一个并不存在的文件javascript.js,这样:
+// node javascript.js 2>info.txt
+//输出结果:会在命令行所在的目录下多出一个文件info.txt;
+//info.txt文件中的内容如下
+
+/*
+ module.js:340
+ throw err;
+ ^
+ Error: Cannot find module 'E:\node\gys\javascript.js'
+ at Function.Module._resolveFilename (module.js:338:15)
+ at Function.Module._load (module.js:280:25)
+ at Function.Module.runMain (module.js:497:10)
+ at startup (node.js:119:16)
+ at node.js:906:3
+ */
+```
