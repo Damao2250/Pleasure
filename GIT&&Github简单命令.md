@@ -1,6 +1,6 @@
 ```js
-
-git init 
+// 初始化 -> 添加到缓存区 -> 提交版本描述 -> 连接到远程地址 -> 推送到远程仓库
+git init  
 git add .
 git commit -m ''
 git remote add origin + git地址
@@ -43,10 +43,10 @@ git status
 
 //不需要服务器端提交的内容可以写到忽略文件 .gitignore 里
 .gitignore忽略内容如下：
-    /*
-        .git
-        .idea
-    */
+  /*
+      .git
+      .idea
+  */
 
 //回滚最近的一个版本 
 //回滚
