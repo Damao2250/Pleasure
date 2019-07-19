@@ -26,6 +26,49 @@ export const removeStore = name => {
 	window.localStorage.removeItem(name);
 }
 
+/**
+ * 清除所有localStorage
+ */
+export const  removeAllLocalStorage = () => {
+    localStorage.clear();
+}
+
+
+/**
+ * 存储sessionStorage
+ */
+function setSessionStorage(name, content) {
+    if (!name) return;
+    if (typeof content !== 'string') {
+        content = JSON.stringify(content);
+    }
+    window.sessionStorage.setItem(name, content);
+}
+
+/**
+ * 获取sessionStorage
+ */
+function getSessionStorage(name) {
+    if (!name) return;
+    return window.sessionStorage.getItem(name);
+}
+
+/**
+ * 删除sessionStorage
+ */
+function removeSessionStorage(name) {
+    if (!name) return;
+    window.sessionStorage.removeItem(name);
+}
+
+/**
+ * 清除所有sessionStorage
+ */
+function removeAllSessionStorage(){
+    sessionStorage.clear();
+}
+
+
 
 /**
  * 设置路由
