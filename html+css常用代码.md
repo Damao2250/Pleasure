@@ -29,6 +29,22 @@ input::placeholder{
     /* placeholder位置  */
     text-align: center;
 }
+
+
+text{
+    /* 文字超出省略 ... */
+    text-overflow: ellipsis; 
+    /*  none : 　无装饰
+        blink : 　闪烁
+        underline : 　下划线
+        line-through : 　贯穿线
+        overline : 　上划线
+     */
+    text-decoration: none;           /* 无装饰 */
+    text-decoration: underline;      /* 下划线样式 */
+    text-decoration: line-through;   /* 删除线样式-贯穿线样式 */
+    text-decoration: overline;       /* 上划线样式 */
+}
 ```
 + 图标与文字对齐
 ```html
