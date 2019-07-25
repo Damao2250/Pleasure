@@ -6,4 +6,5 @@
     background: rgba($color: #608cc7, $alpha: 0.3);
   }
 </style>
+
 ```
