@@ -157,3 +157,25 @@ console.error("guoyansi is error");
  at node.js:906:3
  */
 ```
+
+
+1. 类型强制转换
+
+1.1 string强制转换为数字
+
+可以用 *1来转化为数字(实际上是调用 .valueOf方法)
+然后使用 Number.isNaN来判断是否为 NaN，或者使用 a!==a 来判断是否为 NaN，因为 NaN!==NaN
+```js
+"2333" * 1          // 2333
+"test" * 1        // NaN 
+null * 1          // 0
+undefined * 1     // NaN
+1 * { vulueOf: ()=> "3" } // 3
+
+// 使用 + 也是同等效果
++ "2333"          // 2333
++ "test"        // NaN 
++ null          // 0
++ undefined     // NaN
++ { vulueOf: ()=> "3" } // 3
+```
