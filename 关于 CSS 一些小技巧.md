@@ -17,3 +17,6 @@
 </style>
 
 ```
+控制台
+document.designMode="on"
+可以编写页面
