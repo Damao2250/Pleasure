@@ -132,6 +132,28 @@ git commit -m "first commit"
 git remote add origin git@github.com:Damao2250/invoiceAdmin.git
 git push -u origin master
 
+
+
+
+// 新建本地分支后将本地分支推送到远程库, 使用git pull 或者 git push 的时候报错如下
+
+// gitThere is no tracking information for the current branch.
+// Please specify which branch you want to merge with.
+// See git-pull(1) for details
+//     git pull <remote> <branch>
+// If you wish to set tracking information for this branch you can do so with:
+//     git branch --set-upstream-to=origin/<branch> merged0.9.6
+
+// 是因为本地分支和远程分支没有建立联系  (使用git branch -vv  可以查看本地分支和远程分支的关联关系) 
+
+ 
+//  根据命令行提示只需要执行以下命令即可
+// git branch --set-upstream-to=origin/远程分支的名字 本地分支的名字   
+
+
+
+
+
 ```
 
 
