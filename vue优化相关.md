@@ -44,7 +44,34 @@ module.exports = {
 
 ```
 
-4. 图片的压缩合并
+4. echart优化
+```js
+// 安装 babel-plugin-equire
+npm install babel-plugin-equire -D
+// 修改babel.config.js
+module.exports = {
+  plugins: [
+    'equire'
+  ],
+  // others
+}
+
+
+// 新建echarts.js
+const echarts = equire([
+  'title',
+  'legend',
+  'grid',
+  'line',
+  'bar',
+  'pie',
+  // others
+])
+export default echarts
+
+```
+
+5. 图片的压缩合并
 + 无损压缩图片：https://tinypng.com/
 
 
