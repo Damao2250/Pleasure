@@ -69,9 +69,56 @@ const echarts = equire([
 ])
 export default echarts
 
+
+
+// 或者
+
+// 新建echarts.js
+import echarts from 'echarts/lib/echarts'
+
+import 'echarts/lib/chart/line'
+import 'echarts/lib/chart/lines'
+import 'echarts/lib/chart/radar'
+import 'echarts/lib/component/legend'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/grid'
+
+export default echarts
+
+
+
+
+// 然后再到需要引用echarts的页面进行引入
+import echarts from '../echarts';
+
 ```
 
 5. 图片的压缩合并
 + 无损压缩图片：https://tinypng.com/
 
 
+6. 添加分析工具
+```js
+// 安装
+npm i webpack-bundle-analyzer
+
+// 在 vue.config.js 中添加
+module.exports={
+  chainWebpack: (config) => {
+    /* 添加分析工具 */
+    if (process.env.NODE_ENV === 'production') {
+      if (process.env.npm_config_report) {
+        config.
+          plugin('webpack-bundle-analyzer')
+          .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+          .end()
+        config.plugins.delete('prefetch')
+      }
+    }
+  },
+}
+
+// 启动
+npm run build --report
+
+```
