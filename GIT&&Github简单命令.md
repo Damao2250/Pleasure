@@ -98,6 +98,7 @@ git clone 网站上的仓库地址
 git remote remove origin
 // 再
 git remote add origin 网站上的仓库地址
+// （.git 目录中的 Confit 文件有远程仓库的关联配置）
 
 
 // SSH Key
@@ -115,9 +116,9 @@ git push origin master
 // 更新本地库至远程库的最新改动（拉取）
 git pull
 
-// 要查看远程库的信息、
+// 查看远程库的名称
 git remote
-// 显示更详细的信息
+// 查看远程仓库的详细信息
 git remote -v
 
 // 克隆一个GitHub仓库

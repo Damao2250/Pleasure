@@ -518,6 +518,12 @@ function formatDate(secs,format){
         return year+'-'+month+'-'+date+' '+hour+':'+minute+':'+second;   
     }
 }
+// 获取当前时间
+formatDate(new Data().getTime())
+// 获取前一天
+formatData(new Data().getTimer() - 24*60*60*1000)
+// 获取后一天
+formatData(new Data().getTimer() + 24*60*60*1000)
 ```
 + 获取当前年月日
 ```js
