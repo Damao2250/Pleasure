@@ -153,7 +153,16 @@ git push -u origin master
 
 
 
+// git fetch和git pull的区别
+git pull：相当于是从远程获取最新版本并merge到本地    其实相当于git fetch 和 git merge
 
+git fetch：相当于是从远程获取最新版本到本地，不会自动merge （相对安全）
+常用操作：
+git fetch origin master:tmp
+git diff tmp
+git merge tmp
+从远程获取最新的版本到本地的test分支上
+之后再进行比较合并
 
 ```
 
