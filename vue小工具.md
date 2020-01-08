@@ -120,4 +120,21 @@ const router = new VueRouter({
   ]
 })
 
+/**
+ * vue下载本地静态资源
+ */
+// template.xlsx 放在public文件夹下面
+<a href="./template.xlsx" download="template.xlsx">
+  <el-button type="primary" plain icon="el-icon-download" size="small">下载模板</el-button>
+</a>
+
+
+
+/**
+ * vue Config
+ */
+Vue.config.productionTip = false    // 不显示提示信息 一般会提示：您在开发模式下运行Vue。确保在部署生产时打开生产模式
+
+
+
 ```
