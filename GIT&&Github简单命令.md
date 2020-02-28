@@ -59,6 +59,8 @@ git reset --hard HEAD/commit_id
 git branch
 // 查看全部分支
 git branch  -a 
+// 查看远程分支
+git branch -r
 // 创建dev分支
 git branch dev
 // 切换分支
@@ -75,9 +77,12 @@ git merge dev
 git log --oneline --graph --decorate
 
 // 删除某一个分支,前提是在该分支和产生该分支的主分支已经合并了(merge)
-$ git branch -d 分支名
+git branch -d 分支名
 // 删除某一个分支,无论是否合并都强制删除
-$ git branch -D 分支名  
+git branch -D 分支名  
+
+// 删除远程分支
+git push origin --delete [branchName]
 
 
 
