@@ -76,6 +76,14 @@ git merge dev
 //分支的合并后显示log
 git log --oneline --graph --decorate
 
+// 远程所有分支
+git fetch ???
+//可以看到所有远程分支
+git branch -r 
+// ，假设有一个分支叫origin/mybranch，git checkout mybranch即可，会在本地新建一个同名分支，并与该远程分支关联
+//（git checkout origin/mybranch 会进入detached head状态，不会在本地新建分支，不要这样写）
+git checkout mybranch
+
 // 删除某一个分支,前提是在该分支和产生该分支的主分支已经合并了(merge)
 git branch -d 分支名
 // 删除某一个分支,无论是否合并都强制删除
@@ -83,6 +91,12 @@ git branch -D 分支名
 
 // 删除远程分支
 git push origin --delete [branchName]
+
+// 同步远程已删除分支
+git branch -a   // 查看本地和远程分支情况
+git remote show origin // 查看本地分支和追踪情况   可以看见远程已经删除的分支
+git remote prune origin  // 同步删除的分支
+
 
 
 
