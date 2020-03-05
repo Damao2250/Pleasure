@@ -97,6 +97,10 @@ git branch -a   // 查看本地和远程分支情况
 git remote show origin // 查看本地分支和追踪情况   可以看见远程已经删除的分支
 git remote prune origin  // 同步删除的分支
 
+// 提交本地分支到远程仓库
+git push origin 分支名
+
+
 
 
 
