@@ -76,8 +76,8 @@ git merge dev
 //分支的合并后显示log
 git log --oneline --graph --decorate
 
-// 远程所有分支
-git fetch ???
+// 拉取远程所有分支
+git fetch --all
 //可以看到所有远程分支
 git branch -r 
 // ，假设有一个分支叫origin/mybranch，git checkout mybranch即可，会在本地新建一个同名分支，并与该远程分支关联
@@ -100,6 +100,8 @@ git remote prune origin  // 同步删除的分支
 // 提交本地分支到远程仓库
 git push origin 分支名
 
+// 远程分支分支拉取到本地
+git pull origin 分支名称
 
 
 
