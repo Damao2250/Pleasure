@@ -17,3 +17,11 @@
 </el-form>
 
 ```
+
+## el-input 只输入数字
+```js
+
+oninput ="value=value.replace(/[^\d]/g,'')"    //只能输入数字
+oninput ="value=value.replace(/[^0-9.]/g,'')"  //只能输入数字和小数
+
+```

@@ -103,6 +103,12 @@ git push origin 分支名
 // 远程分支分支拉取到本地
 git pull origin 分支名称
 
+// 将master分支合并到dev分支
+// 切换到dev分支, 将所有的修改进行add 以及commit 然后  git merge master  将master 的分支合并过来
+// merge 遇见冲突后会直接停止，等待手动解决冲突并重新提交 commit 后，才能再次 merge
+// merge 是一个合并操作，会将两个分支的修改合并在一起，默认操作的情况下会提交合并中修改的内容
+git checkout dev
+git merge master
 
 
 
