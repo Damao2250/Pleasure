@@ -25,3 +25,14 @@ oninput ="value=value.replace(/[^\d]/g,'')"    //只能输入数字
 oninput ="value=value.replace(/[^0-9.]/g,'')"  //只能输入数字和小数
 
 ```
+
+## el-autocomplete 带输入建议的输入框使用自定义模板
+```js
+
+// 使用自定义模板，使用scoped slot自定义输入建议的模板
+<template slot-scope="{ item }">
+  <div class="name">{{ item.value }}</div>
+  <span class="addr">{{ item.address }}</span>
+</template>
+
+```
