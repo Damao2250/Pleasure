@@ -48,6 +48,9 @@ git status
       .idea
   */
 
+
+// 查看HEAD历史
+git reflog
 // 回滚最近的一个版本 
 // 回滚
 git reset --hard HEAD/commit_id
@@ -108,7 +111,9 @@ git pull origin 分支名称
 // merge 遇见冲突后会直接停止，等待手动解决冲突并重新提交 commit 后，才能再次 merge
 // merge 是一个合并操作，会将两个分支的修改合并在一起，默认操作的情况下会提交合并中修改的内容
 git checkout dev
-git merge master
+git merge master  // 现有的分支并不会被更改,它会比对双方不同的文件缓存下来，生成一个commit,去push
+//or
+git rebase matser // 修改提交历史，比对双方的commit，然后找出不同的去缓存，然后在去push，修改你的commit历史
 
 
 
