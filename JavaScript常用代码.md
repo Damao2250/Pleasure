@@ -47,3 +47,14 @@ function factorial(n){
 factorial(5)
 
 ```
+
+```js
+// 使用reduce方法将数组转换为对象
+// reduce操作数组：arr.reduce(callback,[initialValue]),第一个参数回调函数，第二个初始值
+
+['a','b','c'].reduce((acc,current)=>{
+    acc[current] = current
+    return acc
+},{})
+
+```
