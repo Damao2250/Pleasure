@@ -20,3 +20,14 @@
 控制台
 document.designMode="on"
 可以编写页面
+
+
+## 网页反转
+```js
+
+ $("body").css({
+   transition: "transform 1s",
+   transform: "rotateY(180deg)"
+ })
+
+```
