@@ -159,12 +159,11 @@ console.error("guoyansi is error");
 ```
 
 
-1. 类型强制转换
+9. 类型强制转换
 
-1.1 string强制转换为数字
++  string强制转换为数字
 
-可以用 *1来转化为数字(实际上是调用 .valueOf方法)
-然后使用 Number.isNaN来判断是否为 NaN，或者使用 a!==a 来判断是否为 NaN，因为 NaN!==NaN
++ 可以用 *1来转化为数字(实际上是调用 .valueOf方法) 然后使用 Number.isNaN来判断是否为 NaN，或者使用 a!==a 来判断是否为 NaN，因为 NaN!==NaN
 ```js
 "2333" * 1          // 2333
 "test" * 1        // NaN 
@@ -179,6 +178,33 @@ undefined * 1     // NaN
 + undefined     // NaN
 + { vulueOf: ()=> "3" } // 3
 ```
+
+
+
+10. 一些简写
+```js
+fn&&fn()
+
+fn?.()
+
+obj.a?.b
+
+```
+
+
+
+11. Object.freeze() 冻结一个对象，冻结后无法修改
+```js
+let obj = { a: 666 }
+Object.freeze(obj)
+obj.a = 888 // 不会报错
+console.log(obj.a) // 666
+
+
+
+```
+
+
 
 ## 常实用的 JS 小技巧
 ```js

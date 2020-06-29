@@ -100,7 +100,7 @@ import echarts from '../echarts';
 6. 添加分析工具
 ```js
 // 安装
-npm i webpack-bundle-analyzer
+npm i webpack-bundle-analyzer -D
 
 // 在 vue.config.js 中添加
 module.exports={

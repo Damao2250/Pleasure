@@ -21,3 +21,5 @@
 // WIN + R 并输入 CMD 打开命令提示符窗口，执行 ipconfig /flushdns 命令即可。
 
 ```
+## 最新Chrome离线版本下载地址
+[Chrome](https://www.google.com/chrome/browser/desktop/index.html?system=false&standalone=1)

@@ -58,3 +58,89 @@ factorial(5)
 },{})
 
 ```
+
+* 日期时间格式化
+```js
+/**
+ * 日期时间格式化
+ * @param {*} fmt 格式
+ * @param {*} date 
+ * 用法：
+ * let date = new Date()
+ * dateFormat("YYYY-mm-dd HH:MM:SS", date)
+ */
+export const dateFormat = (fmt, date) => {
+  let ret;
+  const opt = {
+      "Y+": date.getFullYear().toString(),        // 年
+      "m+": (date.getMonth() + 1).toString(),     // 月
+      "d+": date.getDate().toString(),            // 日
+      "H+": date.getHours().toString(),           // 时
+      "M+": date.getMinutes().toString(),         // 分
+      "S+": date.getSeconds().toString()          // 秒
+      // 有其他格式化字符需求可以继续添加，必须转化成字符串
+  };
+  for (let k in opt) {
+      ret = new RegExp("(" + k + ")").exec(fmt);
+      if (ret) {
+          fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+      };
+  };
+  return fmt;
+}
+```
+
+* 获取今天是周几
+```js
+export const weekDay = () => {
+    return "星期" + "日一二三四五六".charAt(new Date().getDay());
+}
+
+```
+
+* 高阶函数 - after
+```js
+//after  意思是执行一定次数后执行一个方法,例如下边函数  执行count次后再执行fn函数
+
+    function after(count,fn){
+        return ()=>{
+            //这里说说 count--  和 --count   很好解释  减号在前边就会立刻执行减一操作  在后边 下次才会执行
+            if(--count === 0){
+                fn()
+            }
+        }
+    }
+    function callBack(){
+        console.log("两次以后执行结果")
+    }
+
+    let countAfter = after(2,callBack)
+
+    countAfter()
+    countAfter()  //执行两次以后执行结果
+
+//    *实现解析  利用闭包的原理 存储count数  每执行一次做一次减减* 完成条件执行函数
+
+
+// 理解
+function after(count,fn){
+  var num = count
+  function decrease(){
+    if(--num === 0){
+      fn()
+    }
+  }
+  return decrease
+}
+
+function callBack(){
+  console.log("两次以后执行结果")
+}
+
+let countAfter = after(2,callBack)
+
+countAfter()
+countAfter()  //执行两次以后执行结果js
+
+
+```

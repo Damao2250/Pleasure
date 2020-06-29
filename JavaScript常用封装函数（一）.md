@@ -43,6 +43,34 @@ function randomNumber(min,max){
 //包括0和10
 ```
 
++ 任意范围内生成任意个数且不重复的随机整数
+
+```js
+/*  num 要产生多少个随机数
+    from 产生随机数的最小值
+		to 产生随机数的最大值   
+*/
+function createRandom2(num , from , to)
+{
+    var arr=[];
+    var json={};
+    while(arr.length<num)
+    {
+			//产生单个随机数
+			var ranNum=Math.ceil(Math.random()*(to-from))+from;
+			//通过判断json对象的索引值是否存在 来标记 是否重复
+			if(!json[ranNum])
+			{
+				json[ranNum]=1;
+				arr.push(ranNum);
+			}   
+    }
+    return arr;  
+}
+alert(createRandom2(6,0,36));//生成6个从0-36之间不重复的随机数
+
+```
+
 + 随机颜色
 ```js
 /**

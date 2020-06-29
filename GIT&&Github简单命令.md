@@ -39,6 +39,10 @@ git diff --cached
 git status
 
 
+// 未使用 git add 撤销代码
+git checkout .
+
+
 
 
 // 不需要服务器端提交的内容可以写到忽略文件 .gitignore 里
