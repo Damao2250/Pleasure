@@ -235,6 +235,50 @@ git push -u origin --all
 git push -u origin --tags
 
 
+// 本地添加到暂存区 （git push 不会提交stash）
+git stash
+
+// 查看现有的暂存
+git stash list
+
+// 恢复/弹出之前的暂存的stash
+git stash pop
+
+// 删除stash 把修改的内容都删了
+git stash drop
+
+
+
+
+
+// git push/pull 两个远程仓库
+/**
+ * 1.关联
+ * git remote add <refs> <addr>
+ */
+git remote add 自定义远程名 git@git.test.com/test.git
+// 查看关联的仓库
+git remote -v
+
+// 2. 代码 push
+/**
+ * 逐一push
+ * git push <refs> <branch> (push 默认 origin)
+ */
+git push 自定义远程名 master
+// or
+git push origin master  // 推送代码到 origin 的 master 分支，可省略为：git push
+
+// 全部push
+// 在.git/congig下的[remote "origin"] 下添加新的远程仓库url， push时全部会push
+[remote "origin"]
+    url="git@git.test.com/test.git"
+
+// 3. 代码pull
+// git pull <refs> <branch>
+git pull 自定义远程名 master
+//or
+git pull origin master // 拉取 origin 的 master 分支的代码，可省略为：git pull
 
 
 ```
