@@ -312,6 +312,10 @@ git pull 自定义远程名 master
 git pull origin master // 拉取 origin 的 master 分支的代码，可省略为：git pull
 
 
+// git修改commit（commit后未push，只能是最新一次提交的commit）
+git commit --amend
+
+
 ```
 
 
